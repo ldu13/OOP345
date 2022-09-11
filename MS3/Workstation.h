@@ -1,0 +1,44 @@
+// Project - Milestone 3
+// Workstation.h
+
+// Name: Lei Du
+// Seneca Student ID: 047587134
+// Seneca email: ldu13@myseneca.ca
+// Date of completion: Apr. 10, 2022
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+#ifndef WORKSTATION_H
+#define WORKSTATION_H
+#include <deque>
+#include "Station.h"
+#include "CustomerOrder.h"
+
+namespace sdds
+{
+	extern std::deque<CustomerOrder> g_pending;
+	extern std::deque<CustomerOrder> g_completed;
+	extern std::deque<CustomerOrder> g_incomplete;
+
+	class Workstation : public Station
+	{
+		std::deque<CustomerOrder> m_orders;
+		Workstation* m_pNextStation{};
+	public:
+		Workstation(const std::string& record);
+		void fill(std::ostream& os);
+		bool attemptToMoveOrder();
+		void setNextStation(Workstation* station = nullptr);
+		Workstation* getNextStation() const;
+		void display(std::ostream& os) const;
+		Workstation& operator+=(CustomerOrder&& newOrder);
+
+		Workstation(const Workstation& src) = delete;
+		Workstation& operator=(const Workstation& src) = delete;
+		Workstation(Workstation&& src) = delete;
+		Workstation& operator=(Workstation&& src) = delete;
+	};
+}
+
+#endif

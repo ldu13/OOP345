@@ -1,14 +1,3 @@
-// Project - Milestone 3
-// Workstation.h
-
-// Name: Lei Du
-// Seneca Student ID: 047587134
-// Seneca email: ldu13@myseneca.ca
-// Date of completion: Apr. 10, 2022
-//
-// I confirm that I am the only author of this file
-//   and the content was created entirely by me.
-
 #ifndef WORKSTATION_H
 #define WORKSTATION_H
 #include <deque>
